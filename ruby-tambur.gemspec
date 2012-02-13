@@ -4,7 +4,7 @@ require "ruby-tambur/version"
 
 Gem::Specification.new do |s|
   s.name        = "ruby-tambur"
-  s.version     = Ruby::Tambur::VERSION
+  s.version     = Tambur::VERSION
   s.authors     = ["Andre Graf"]
   s.email       = ["graf@tambur.io"]
   s.homepage    = "https://github.com/tamburio/ruby-tambur"
