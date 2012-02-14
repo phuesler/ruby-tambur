@@ -21,7 +21,6 @@ module Tambur
                 request = Net::HTTP::Post.new(url.path)
             request.body = @oauth.sign(url).query_string()
             request['Content-Type'] = 'application/x-www-form-urlencoded'
-            pp request.body
             response = http.request(request)
             if response.code == '204'
                 return true
