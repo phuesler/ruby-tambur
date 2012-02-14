@@ -3,9 +3,7 @@ Tambur.io provides a pain-free websocket experience.
 ###Preliminary
 Install this library preferably using [bundler][1]:
 
-    git clone git://github.com/tamburio/ruby-tambur.git
-    cd ruby-tambur
-    bundle install
+   gem "ruby-tambur", :git => "git://github.com/tamburio/ruby-tambur.git", :branch => "master"
 
 Please register on [Tambur.io][2] and create at least one app. This will give you the unique API\_KEY, an APP\_ID and a SECRET, which you need to initialize the client.
 
