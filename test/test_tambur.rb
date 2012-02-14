@@ -59,11 +59,12 @@ class TamburAuthTokenTest < Test::Unit::TestCase
         assert_equal('2f25ad1ce5afab906cc582b6254a912590c60f73', token)
     end
 
-    def test_raise_invalid_stream
-        stream = 'invalid:stream' # auth streams must start with 'auth:'
-        assert_raise(RuntimeError, 'invalid stream'){
-            @tambur.generate_auth_token(stream, 'subscriber_id')
-        }
+    def test_auth_token_is_optional
+        stream = 'valid:stream' # auth streams must start with 'auth:'
+        assert_not_nil @tambur.generate_auth_token(stream, 'subscriber_id')
+
+        stream = 'auth:stream'
+        assert_not_nil @tambur.generate_auth_token(stream, 'subscriber_id')
     end
 end
 
