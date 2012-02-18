@@ -30,11 +30,11 @@ module Tambur
             }
         end
 
-        def generate_auth_token(stream, subscriber_id)
-            stream.prepend "auth:" unless stream.start_with? "auth:"
-            auth_string = @oauth.consumer_key + ':' + @app_id + ':' + stream + ':' + subscriber_id
-            digest = OpenSSL::Digest::Digest.new( 'sha1' )
-            return OpenSSL::HMAC.hexdigest( digest, @oauth.consumer_secret, auth_string)
-        end
+    def generate_auth_token(stream, subscriber_id)
+      stream.insert(0,"auth:") unless stream.start_with? "auth:"
+      auth_string = @oauth.consumer_key + ':' + @app_id + ':' + stream + ':' + subscriber_id
+      digest = OpenSSL::Digest::Digest.new( 'sha1' )
+      return OpenSSL::HMAC.hexdigest( digest, @oauth.consumer_secret, auth_string)
     end
+  end
 end
