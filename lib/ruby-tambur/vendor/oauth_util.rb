@@ -77,7 +77,7 @@ module Tambur
 
                 # if url has query, merge key/values into params obj overwriting defaults
                 if parsed_url.query
-                    @params.merge! CGI.parse( parsed_url.query )
+                    @params.merge! CGI.parse( parsed_url.query ).inject({}){|h, (k, v)|h[k.to_s] = v[0];h}
                 end
 
                 # @ref http://oauth.net/core/1.0/#rfc.section.9.1.2
